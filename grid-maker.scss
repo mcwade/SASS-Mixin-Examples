@@ -1,0 +1,37 @@
+@mixin grid($pre, $total) {
+  @for $i from 1 through $total {
+    $width: percentage($i / $total);
+    @if $i == $total {
+      .#{$pre}-all,
+      .#{$pre}-#{$i}of#{$total} { width: $width; }
+    } @else {
+      .#{$pre}-#{$i}of#{$total} { width: $width; }
+    }
+  }
+}
+
+/***
+ Mobile Grid
+***/
+@media (max-width: 767px) {
+  // include mixin, prefix (m) and total number of columns.
+  @include grid(m,4);
+}
+
+
+/***
+ Tablet Grid
+***/
+@media (min-width: 768px) and (max-width: 1020px) {
+  // include mixin, prefix (t) and total number of columns.
+  @include grid(t,8);
+}
+
+
+/***
+ Desktop Grid
+***/
+@media (min-width: 1020px) {
+  // include mixin, prefix (d) and total number of columns.
+  @include grid(d,12);
+}
