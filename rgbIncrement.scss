@@ -1,0 +1,13 @@
+/*********************
+Iterate Over Unordered List 
+- Editing Font RGB Color
+*********************/
+
+@mixin iteration {
+	$startnumber: 200;
+	@for $i from 1 through 24 {
+		&:nth-child(#{$i}) {
+			color: rgb( $startnumber + $i, $startnumber + $i, $startnumber + $i );
+		}
+	}
+}
