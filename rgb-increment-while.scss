@@ -1,0 +1,30 @@
+/*********************
+Iterate Over Unordered List 
+- Editing Font RGB Color
+*********************/
+
+@mixin iteration($max, $rgbValue) {
+  @while ($max > 0) {
+    &:nth-child(#{$max}) {
+      color: rgb( $rgbValue + $max, $rgbValue + $max, $rgbValue + $max );
+    }
+    $max: $max - 1;
+  }
+}
+
+ul {
+	display: block;
+	
+	li {
+		float: none;
+		color: rgb(210,210,210);
+		padding: 0 2px;
+	
+		&:before {
+			content: "["; }
+		&:after {
+			content: "]"; }
+	
+		@include iteration(12, 210);
+	}
+}
